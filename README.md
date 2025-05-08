@@ -13,3 +13,9 @@
 
   - activeProps
   - isActive
+
+- Path Parameter and Loader in TanStack-Router
+  - useParams()
+  - loader && useLoaderData()
+  - params
+  -

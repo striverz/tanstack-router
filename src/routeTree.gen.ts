@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as IndexImport } from './routes/index'
+import { Route as PokemonIdImport } from './routes/pokemon/$id'
 
 // Create/Update Routes
 
@@ -25,6 +26,12 @@ const ProfileRoute = ProfileImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PokemonIdRoute = PokemonIdImport.update({
+  id: '/pokemon/$id',
+  path: '/pokemon/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileImport
       parentRoute: typeof rootRoute
     }
+    '/pokemon/$id': {
+      id: '/pokemon/$id'
+      path: '/pokemon/$id'
+      fullPath: '/pokemon/$id'
+      preLoaderRoute: typeof PokemonIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/pokemon/$id': typeof PokemonIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/pokemon/$id': typeof PokemonIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/profile': typeof ProfileRoute
+  '/pokemon/$id': typeof PokemonIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profile'
+  fullPaths: '/' | '/profile' | '/pokemon/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profile'
-  id: '__root__' | '/' | '/profile'
+  to: '/' | '/profile' | '/pokemon/$id'
+  id: '__root__' | '/' | '/profile' | '/pokemon/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfileRoute: typeof ProfileRoute
+  PokemonIdRoute: typeof PokemonIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfileRoute: ProfileRoute,
+  PokemonIdRoute: PokemonIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/profile"
+        "/profile",
+        "/pokemon/$id"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/profile": {
       "filePath": "profile.tsx"
+    },
+    "/pokemon/$id": {
+      "filePath": "pokemon/$id.tsx"
     }
   }
 }

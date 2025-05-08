@@ -22,6 +22,15 @@ function RootComponent() {
           {({ isActive }) => <>Profile {isActive && "Page"}</>}
         </Link>
       </li>
+      <li>
+        <Link
+          to="/pokemon/$id"
+          params={{ id: "6" }}
+          activeProps={{ className: "text-blue-500 font-bold" }}
+        >
+          Pokemon
+        </Link>
+      </li>
       <Outlet />
     </React.Fragment>
   );
