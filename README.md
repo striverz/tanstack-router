@@ -24,3 +24,4 @@
   - useSearch()
   - search{{}}
   - validation
+  - useNavigate() -> navigate({to:"/path"})
