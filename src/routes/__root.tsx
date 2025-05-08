@@ -9,18 +9,20 @@ import {
 export const Route = createRootRoute({
   component: RootComponent,
 });
-const navigate = useNavigate();
-const handleHome = () => [
-  navigate({
-    to: "/",
-  }),
-];
+
 function RootComponent() {
+  const navigate = useNavigate();
+
+  const handleHome = () => [
+    navigate({
+      to: "/",
+    }),
+  ];
   return (
     <React.Fragment>
       <div>React TanStack Router</div>
       <li>
-        <div onClick={handleHome}>Home/Root</div>
+        <div onClick={handleHome}>Home</div>
       </li>
       <li>
         <Link

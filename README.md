@@ -21,7 +21,10 @@
   - params
 
 - Query Parameters and Validation
+
   - useSearch()
   - search{{}}
   - validation
   - useNavigate() -> navigate({to:"/path"})
+
+- Authenticated Routes
