@@ -15,6 +15,12 @@
   - isActive
 
 - Path Parameter and Loader in TanStack-Router
+
   - useParams()
   - loader && useLoaderData()
   - params
+
+- Query Parameters and Validation
+  - useSearch()
+  - search{{}}
+  - validation
