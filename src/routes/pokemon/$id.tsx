@@ -9,7 +9,7 @@ export const Route = createFileRoute("/pokemon/$id")({
 function RouteComponent() {
   const pokemonData = Route.useLoaderData();
   const { id } = Route.useParams();
-  console.log(pokemonData);
+
   return (
     <div>
       <h1>

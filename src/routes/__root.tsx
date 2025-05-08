@@ -24,8 +24,7 @@ function RootComponent() {
       </li>
       <li>
         <Link
-          to="/pokemon/$id"
-          params={{ id: "6" }}
+          to="/pokemon"
           activeProps={{ className: "text-blue-500 font-bold" }}
         >
           Pokemon
